@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Categoria</title>
+</head>
+<body>
+
+<form th:action="@{/guardarCategoria}" th:object="${categoria}" method="post">
+    <br>
+    <br>
+    <br>
+    <label for="categoria">Titulo </label>
+    <input th:field="*{categoria}" id="categoria" type="text" placeholder="ingresa la categoria" name="categoria" />
+    <span th:errors="*{categoria}" style="color: #E81505"></span>
+    <br>
+    <br>
+
+    <br><br>
+    <input type="submit" value="Guardar" />
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Inresa el libro</title>
+</head>
+<body>
+
+<form th:action="@{/guardarLibro}" th:object="${libro}" method="post">
+    <br>
+    <label>Categoria</label>
+    <th>
+        <select th:field="*{categoria.codigoCategoria}">
+            <option th:each="imp: ${categoriaL}" th:value="${imp.codigoCategoria}" th:text="${imp.categoria}">
+            </option>
+        </select>
+    </th>
+    <br>
+    <br>
+    <label for="titulo">Titulo </label>
+    <input th:field="*{titulo}" id="titulo" type="text" placeholder="Ingresa el titulo" name="titulo" />
+    <span th:errors="*{titulo}" style="color: #E81505"></span>
+    <br>
+    <br>
+    <label for="autor">Autor </label>
+    <input th:field="*{autor}" id="autor" type="text" placeholder="Ingresa el autor" name="autor" />
+    <span th:errors="*{autor}" style="color: #E81505"></span>
+    <br>
+    <label>Estado</label>
+    <input type="checkbox" th:field ="*{estado}" th:value="${false}">
+    <br>
+    <label for="ISBN">ISBN </label>
+    <input th:field="*{isbn}" id="ISBN" type="text" placeholder="Ingresa el isbn" name="isbn" />
+    <span th:errors="*{isbn}" style="color: #E81505"></span>
+    <br>
+
+
+    <br><br>
+    <input type="submit" value="Guardar" />
+
+</form>
+
+</body>
+</html>
